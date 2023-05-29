@@ -5,10 +5,7 @@ import com.example.pp_3_1_2_springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -38,53 +35,53 @@ public class UserController {
         return "users";
     }
 
-//    @GetMapping("/user/create")
-//    public String getNewUserPage(Model model) {
-//        model.addAttribute("user", new User());
-//        model.addAttribute("titleText", "Добавление");
-//        model.addAttribute("H1", "Добавление нового пользователя");
-//
-//        return "create";
-//    }
-//
-//    @PostMapping("/user/create")
-//    public String createNewUser(Model model, @ModelAttribute("user") User user) {
-//        userService.saveUser(user);
-//        model.addAttribute("users", userService.getAllUsers());
-//
-//        return "users";
-//    }
-//
-//    @GetMapping("/user/delete")
-//    public String getDeleteUserPage(Model model) {
-//        model.addAttribute("titleText", "Удаление");
-//        model.addAttribute("H1", "Удаление пользователя по ID");
-//
-//        return "delete";
-//    }
-//
-//    @PostMapping("/user/delete")
-//    public String deleteUser(Model model, @RequestParam("id") Long id) {
-//        userService.deleteUser(id);
-//        model.addAttribute("users", userService.getAllUsers());
-//
-//        return "users";
-//    }
-//
-//    @GetMapping("/user/update")
-//    public String getUpdateUserPage(Model model) {
-//        model.addAttribute("user", new User());
-//        model.addAttribute("titleText", "Обновление");
-//        model.addAttribute("H1", "Обновление пользователя по ID");
-//
-//        return "update";
-//    }
-//
-//    @PostMapping("/user/update")
-//    public String updateUser(Model model, @ModelAttribute("user") User user) {
-//        userService.updateUser(user);
-//        model.addAttribute("users", userService.getAllUsers());
-//
-//        return "users";
-//    }
+    @GetMapping("/user/create")
+    public String getNewUserPage(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("titleText", "Добавление");
+        model.addAttribute("H1", "Добавление нового пользователя");
+
+        return "create";
+    }
+
+    @PostMapping("/user/create")
+    public String createNewUser(Model model, @ModelAttribute("user") User user) {
+        userService.saveUser(user);
+        model.addAttribute("users", userService.getAllUsers());
+
+        return "users";
+    }
+
+    @GetMapping("/user/delete")
+    public String getDeleteUserPage(Model model) {
+        model.addAttribute("titleText", "Удаление");
+        model.addAttribute("H1", "Удаление пользователя по ID");
+
+        return "delete";
+    }
+
+    @DeleteMapping("/user/delete")
+    public String deleteUser(Model model, @RequestParam(value="id") Long id) {
+        userService.deleteUser(id);
+        model.addAttribute("users", userService.getAllUsers());
+
+        return "users";
+    }
+
+    @GetMapping("/user/update")
+    public String getUpdateUserPage(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("titleText", "Обновление");
+        model.addAttribute("H1", "Обновление пользователя по ID");
+
+        return "update";
+    }
+
+    @PatchMapping("/user/update")
+    public String updateUser(Model model, @ModelAttribute("user") User user) {
+        userService.updateUser(user);
+        model.addAttribute("users", userService.getAllUsers());
+
+        return "users";
+    }
 }

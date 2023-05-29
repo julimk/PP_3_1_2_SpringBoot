@@ -26,30 +26,30 @@ public class UserServiceImp implements UserService {
     }
 
 
-//    @Override
-//    @Transactional
-//    public void saveUser(User user) {
-//        userDao.saveUser(user);
-//    }
-//
-//
-//    @Override
-//    @Transactional
-//    public void deleteUser(Long id) {
-//        userDao.deleteUser(id);
-//    }
-//
-//    @Override
-//    @Transactional
-//    public void updateUser(User user) {
-//        userDao.updateUser(user);
-//    }
-//
-//    @Override
-//    @Transactional(readOnly = true)
-//    public User findById(Long id) {
-//        return userDao.findById(id);
-//    }
+    @Override
+    @Transactional
+    public void saveUser(User user) {
+        userDao.saveUser(user);
+    }
+
+
+    @Override
+    @Transactional
+    public void deleteUser(Long id) {
+        userDao.deleteUser(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(User user) {
+        userDao.updateUser(user);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public User findById(Long id) {
+        return userDao.findById(id);
+    }
 
 
 }
